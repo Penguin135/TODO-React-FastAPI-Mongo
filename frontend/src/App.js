@@ -18,13 +18,15 @@ function App() {
     axios.get('http://localhost:8000/api/todo')
       .then(res => {
         setTodoList(res.data)
+        return
       })
-  });
+  }, []);
 
   // Post a todo
   const addTodoHandler = () => {
     axios.post('http://localhost:8000/api/todo/', { 'title': title, 'description': desc })
       .then(res => console.log(res))
+      return
   };
 
   return (
